@@ -21,7 +21,6 @@ SRCS = qmonix.js\
 	exceptions/BadArgumentException.js\
 	utils/utils.js\
 	utils/Utils.js\
-	utils/BrowserDetect.js\
 	TimeInterval.js\
 	EventMessage.js\
 	EventDispatcher.js\
