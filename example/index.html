@@ -1,0 +1,48 @@
+<html>
+<body>
+
+	<script src="../build/Qmonix.js"
+		id="Qmonix-Server-script"></script>
+
+	<script>
+		var te;
+		var Tracker = qmonix.Tracker;
+
+		function onError()
+		{
+			console.log('Failed to dispatch events.');
+		}
+
+		function onSuccess()
+		{
+			console.log('Success.');
+		}
+
+		var disp = Tracker.getDispatcher();
+		disp.setOnError(onError);
+		disp.setOnSuccess(onSuccess);
+
+		function sendToServer()
+		{
+			Tracker.getDispatcher().sendToServer();
+		}
+
+	</script>
+
+	<input type="button" value="Submit events"
+		onclick="sendToServer()"/>
+	<input type="button" value="Fire single event"
+		onclick="Tracker.fire('sdk/click')"/>
+	<input type="button" value="Fire volume event"
+		onclick="Tracker.fire('sdk/volume', 5)"/>
+	<input type="button" value="Start"
+		onclick="te = Tracker.start('sdk/registration')"/>
+	<input type="button" value="Pause"
+		onclick="te.pause()"/>
+	<input type="button" value="Resume"
+		onclick="te.resume()"/>
+	<input type="button" value="Stop"
+		onclick="te.fire()"/>
+
+</body>
+</html>
